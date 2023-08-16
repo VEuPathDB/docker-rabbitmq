@@ -10,7 +10,8 @@ services:
       - rabbitmq-data:/var/lib/rabbitmq
 
 networks:
-  {HOST-INTERNAL "EXTERNAL" NETWORK NAME}:
+  rabbitmq:
+    name: rabbitmq
     external: true
 
 volumes:
