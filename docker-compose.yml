@@ -3,6 +3,8 @@ version: '3.7'
 services:
   rabbit:
     image: rabbitmq:${RABBITMQ_IMAGE_TAG:-3.12.2-management-alpine}
+    networks:
+      - rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER:?}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS:?}
@@ -12,7 +14,6 @@ services:
 networks:
   rabbitmq:
     name: rabbitmq
-    external: true
 
 volumes:
   rabbitmq-data:
